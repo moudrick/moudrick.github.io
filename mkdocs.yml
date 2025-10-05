@@ -1,0 +1,25 @@
+site_name: moudrick.net
+site_description: "Personal experiments, projects, and notes by moudrick."
+site_url: https://moudrick.net
+
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - navigation.top
+    - navigation.instant
+    - navigation.tracking
+    - content.code.copy
+
+extra_css:
+  - extra_css/home.css
+
+# Extra JS to make external links open in a new tab
+extra_javascript:
+  - extra_javascript/extra.js
+
+nav:
+  - Home: index.md
+  - Blog: blog/index.md
+  - Projects: projects/index.md
+  - GitHub: https://github.com/moudrick

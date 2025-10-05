@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>{{ config.site_name }}</h1>
+      <p class="subtitle">{{ config.site_description or "Personal projects, experiments, and notes." }}</p>
+      <ul class="hero-links">
+        <li><a href="{{ base_url }}/blog/">Blog</a></li>
+        <li><a href="{{ base_url }}/projects/">Projects</a></li>
+        <li><a href="https://github.com/moudrick" target="_blank">GitHub</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="feature-grid">
+    <div class="feature">
+      <h3>⚙️ Projects</h3>
+      <p>Technical documentation, demos, and ideas in progress.</p>
+    </div>
+    <div class="feature">
+      <h3>🧠 Thoughts</h3>
+      <p>Short notes on design, engineering, and open source.</p>
+    </div>
+    <div class="feature">
+      <h3>🌐 Experiments</h3>
+      <p>Explorations across AI, web tools, and automation.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}
