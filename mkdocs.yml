@@ -2,6 +2,17 @@ site_name: moudrick.net
 site_description: "Personal experiments, projects, and notes by moudrick."
 site_url: https://moudrick.net
 
+copyright: >
+  Copyright &copy; 2025 moudrick –
+  <a href="#__consent">Change cookie settings</a>
+
+plugins:
+  - search
+  - blog:
+      blog_dir: blog
+      draft: true
+      blog_toc: true
+
 theme:
   name: material
   custom_dir: overrides
@@ -11,12 +22,26 @@ theme:
     - navigation.tracking
     - content.code.copy
 
+extra:
+  consent:
+    title: "Cookie consent"
+    description: "We use cookies to improve your experience and analyze traffic."
+    actions:
+      - accept
+      - reject
+  analytics:
+    provider: google
+    property: G-R85H8F8QQ2
+
 extra_css:
   - extra_css/home.css
+  - extra_css/custom.css
 
-# Extra JS to make external links open in a new tab
 extra_javascript:
-  - extra_javascript/extra.js
+  - extra_javascript/nav_external.js
+
+markdown_extensions:
+  - attr_list
 
 nav:
   - Home: index.md

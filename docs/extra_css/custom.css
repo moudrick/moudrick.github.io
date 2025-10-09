@@ -1,0 +1,6 @@
+/* Adds a small external-link arrow after links with external-link-icon */
+a.md-ext::after {
+    content: "↗";  /* external link arrow */
+    margin-left: 0.2em;
+    font-size: 0.8em;
+}
