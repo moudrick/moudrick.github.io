@@ -1,0 +1,164 @@
+.hero {
+  position: relative; /* so absolute children anchor to this */
+  display: flex;
+  align-items: flex-start;   /* top alignment */
+  justify-content: flex-start; /* move content to left */
+  height: 100vh;
+  color: white;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  background-image: url("../images/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  text-align: left;
+  padding-top: 1rem;  /* your chosen breathing space */
+  padding-left: 1rem; /* space from left edge */
+}
+
+.hero-inner {
+  backdrop-filter: brightness(0.85);
+  padding: 0.5rem 1.5rem 1.5rem 1.5rem; /* reduced top padding from 1.5rem → 0.5rem */
+  border-radius: 0.5rem;
+  max-width: 380px;
+}
+
+.hero h1 {
+  font-size: 1.5rem;
+  margin: 0; /* remove extra margin for tighter spacing */
+  font-style: italic; /* make italic */
+  background: linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255,255,255,0));
+  -webkit-background-clip: text; 
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  line-height: 1.1; /* optional: tighter line spacing */
+}
+
+.hero .subtitle, .hero-links {
+  font-family: "Fira Code", "Source Code Pro", monospace;
+}
+
+.hero .subtitle {
+  font-size: 0.7rem;
+  opacity: 0.9;
+  margin-bottom: 0.6rem; /* reduced from 1.2rem */
+}
+
+.hero-links {
+  list-style: none; /* removes bullets at the UL level */
+  padding: 0;
+  margin: 0;
+  font-size: 0.6rem;
+  text-align: left;
+}
+
+.hero-links li {
+  list-style: none; /* double-safety for nested lists or theme overrides */
+  margin: 0.2rem 0; /* slightly tighter vertical spacing between links */
+  line-height: 1.1; /* optional: tighter line spacing */
+  position: relative; /* needed for ::before positioning if we tweak later */
+}
+
+.hero-links li::before {
+  content: "$";
+  color: #38bdf8; /* light cyan for a nice terminal vibe */
+  margin-right: 0.4rem;
+  opacity: 0.8;
+  display: inline-block;   /* ensures proper spacing and alignment */
+  width: 0.8rem;           /* reserves space so text lines up neatly */
+}
+
+.hero-links li [href^="http"][target="_blank"]::after {
+  content: "↗";
+  font-size: 1.3em;
+  font-weight: 900;
+  color: var(--md-accent-fg-color);
+  opacity: 0.7;
+}
+
+.hero-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.hero-links a:hover {
+  color: white;
+}
+
+/* feature section */
+.features {
+  padding: 4rem 2rem;
+  background: var(--md-default-bg-color);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.feature {
+  text-align: center;
+  padding: 1rem;
+}
+
+.feature h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+}
+
+/* image credit section */
+.image-credit {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: "Fira Code", "Source Code Pro", monospace;
+  transition: all 0.2s ease;
+}
+
+.image-credit a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+
+.image-credit:hover .prompt-popup {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.prompt-popup {
+  position: absolute;
+  bottom: 120%;
+  right: 0; /* align with bottom-right frame */
+  width: 380px;
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0.4rem;
+  padding: 0.5rem;
+  font-size: 0.65rem;
+  line-height: 1.2;
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 0;
+  }
+  .hero-inner {
+    max-width: 90%;
+  }
+}
