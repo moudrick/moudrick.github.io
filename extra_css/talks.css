@@ -1,0 +1,90 @@
+/* Compact month calendars on Talks and Blog (see extra_javascript/talks_calendar.js) */
+.tc {
+  width: 13rem;
+  max-width: 100%;
+  margin: 0.4rem 0 1rem;
+  font-size: 0.7rem;
+}
+@media screen and (min-width: 60em) {
+  .tc {
+    float: right;
+    margin: 0.4rem 0 1rem 1.5rem;
+  }
+}
+/* Docked in a sidebar: fill its width, no float */
+.md-sidebar .tc {
+  float: none;
+  width: auto;
+  margin: 0.2rem 0 1rem;
+  padding-right: 0.6rem;
+}
+.tc-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.2rem;
+}
+.tc-title {
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+.tc-head button {
+  width: 1.4rem;
+  height: 1.4rem;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--md-default-fg-color);
+  background: none;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 0.2rem;
+}
+.tc-head button:hover,
+.tc-head button:focus-visible {
+  color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+}
+.tc-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  text-align: center;
+}
+.tc-dow {
+  font-size: 0.6rem;
+  color: var(--md-default-fg-color--light);
+}
+.tc .tc-grid .tc-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.35rem;
+  border-radius: 0.2rem;
+  color: var(--md-default-fg-color);
+}
+.tc .tc-grid .tc-today {
+  outline: 1px solid var(--md-default-fg-color--light);
+  outline-offset: -1px;
+}
+.tc .tc-grid a.tc-upcoming,
+.tc .tc-grid a.tc-post {
+  font-weight: 700;
+  color: #fff;
+  background: var(--md-primary-fg-color);
+}
+.tc .tc-grid a.tc-past {
+  background: var(--md-default-fg-color--lightest);
+}
+
+.md-typeset .talk {
+  scroll-margin-top: 4rem;
+  margin-bottom: 0.4rem;
+}
+.md-typeset .talk:target {
+  background: var(--md-accent-fg-color--transparent);
+}
+.md-typeset .tc-actions {
+  margin-top: 0;
+  font-size: 0.8rem;
+}

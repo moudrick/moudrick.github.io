@@ -1,0 +1,50 @@
+/* Adds a small external-link arrow after links with external-link-icon */
+a.md-ext::after {
+    content: "↗";  /* external link arrow */
+    margin-left: 0.2em;
+    font-size: 0.8em;
+    opacity: 0.7;
+    color: var(--md-accent-fg-color);  /* same green as the sidebar arrow */
+}
+/* Material lays nav links out as flex with an 8px gap, which pushed the arrow away from the text */
+.md-nav__link[href^="http"][target="_blank"] {
+  gap: 0;
+  align-items: baseline;  /* arrow on the text baseline, as in page content */
+}
+.md-nav__link[href^="http"][target="_blank"]::after {
+  content: "↗";
+  margin-left: 0.2em;  /* same distance as the arrow in page content */
+  font-size: 0.8em;
+  opacity: 0.7;
+  color: var(--md-accent-fg-color);
+}
+
+/* Thin separator between blog posts */
+.md-post--excerpt:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  margin-bottom: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+[data-md-color-scheme="slate"] .md-post--excerpt:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Pinned post: Material adds its own <hr> after it, on top of the separator above.
+   Keep both rules but bring them close together. */
+.md-post--excerpt:has(.md-pin) {
+  padding-bottom: 0.2rem;
+}
+.md-post--excerpt .md-post__content > hr {
+  margin-bottom: 0.4rem;
+}
+
+/* A <!-- more --> break placed between list items splits the list in two on the
+   full post page; this keeps it looking like one list. */
+.md-typeset ul:has(+ ul),
+.md-typeset ol:has(+ ol) {
+  margin-bottom: 0.5em; /* same as the gap between list items */
+}
+.md-typeset ul + ul,
+.md-typeset ol + ol {
+  margin-top: 0;
+}
